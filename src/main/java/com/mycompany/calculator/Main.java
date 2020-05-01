@@ -20,9 +20,12 @@ public class Main extends javax.swing.JFrame {
     
      boolean neg = false;     // initialize variables
      double mem;
+     double mem2;
      int func;
+     String method=""; // current function name (+,-,*...)
      boolean start= false;
-     boolean stat= false; 
+     boolean stat= false;
+     boolean equ = true;  // for equation mark
      void reset(){
          neg=false;
          jTextField1.setText("");
@@ -36,18 +39,23 @@ public class Main extends javax.swing.JFrame {
          switch(func){
              case 1:
                  mem+=num;
+                 method="+";
                  break;
              case 2:
                  mem-=num;
+                 method="-";
                  break;
              case 3:
                  mem*=num;
+                 method="*";
                  break;
              case 4:
                  mem/=num;
+                 method="/";
                  break;
              case 5:
                  mem%=num;
+                 method="%";
                  break;
              default:
                  break;
@@ -56,6 +64,7 @@ public class Main extends javax.swing.JFrame {
     }
     
     void button(int n , String s){
+        
         if(!jTextField1.getText().equals("") && !start && !stat){
            mem=cond(jTextField1.getText());
        jLabel1.setText(jTextField1.getText()+" "+s);
@@ -259,6 +268,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton25.setText("=");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
 
         jButton26.setText(".");
         jButton26.addActionListener(new java.awt.event.ActionListener() {
@@ -563,6 +577,29 @@ public class Main extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
       button(5,"%");
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+      if(!start)
+          jLabel1.setText(jTextField1.getText()+"=");
+      if(equ){
+           mem2=cond(jTextField1.getText());
+           eq();
+           jLabel1.setText(jLabel1.getText()+" "+jTextField1.getText()+"=");
+           jTextField1.setText(Double.toString(mem));
+           equ=false;
+           stat=true;
+      }
+      else{
+          mem=cond(jTextField1.getText());
+          jTextField1.setText(Double.toString(mem2));
+          jLabel1.setText(Double.toString(mem)+" "+method+" "+Double.toString(mem2)+"=");
+          eq();
+          jTextField1.setText(Double.toString(mem));
+          stat=true;
+      }
+         
+         
+    }//GEN-LAST:event_jButton25ActionPerformed
 
     /**
      * @param args the command line arguments
