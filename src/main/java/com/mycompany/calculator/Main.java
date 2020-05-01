@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.calculator;
-
+import java.lang.Math;
 /**
  *
  * @author Pasindu
@@ -169,10 +169,25 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton10.setText("sqrt");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setText("X*X");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setText("1/x");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jButton13.setText("7");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -259,6 +274,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton25.setText("=");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
 
         jButton26.setText(".");
         jButton26.addActionListener(new java.awt.event.ActionListener() {
@@ -563,6 +583,28 @@ public class Main extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
       button(5,"%");
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+       jLabel1.setText("1/("+jTextField1.getText()+")");
+       mem=(double)1/cond(jTextField1.getText());
+       jTextField1.setText(Double.toString(mem));
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+       jLabel1.setText("sqr("+jTextField1.getText()+")");
+       mem=(cond(jTextField1.getText()))*(cond(jTextField1.getText()));
+       jTextField1.setText(Double.toString(mem));
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+       jLabel1.setText("√("+jTextField1.getText()+")");
+       mem=Math.sqrt(cond(jTextField1.getText()));
+       jTextField1.setText(Double.toString(mem));
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
