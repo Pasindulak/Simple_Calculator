@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.calculator;
-import java.lang.Math;
 /**
  *
  * @author Pasindu
@@ -557,7 +552,16 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+       neg = false;     // initialize variables
+     mem=0;
+     mem2=0;
+     func=0;
+     method=""; // current function name (+,-,*...)
+     start= false;
+     stat= false;
+     equ = true;
+     jTextField1.setText("");
+     jLabel1.setText("");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
